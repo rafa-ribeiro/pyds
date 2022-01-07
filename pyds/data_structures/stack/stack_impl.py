@@ -23,3 +23,11 @@ class Stack:
 
     def to_list(self):
         return self.stack
+
+    def peek(self):
+        try:
+            top = self.stack[-1]
+        except IndexError:
+            top = None
+        finally:
+            return top

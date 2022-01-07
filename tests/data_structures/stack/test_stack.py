@@ -14,7 +14,7 @@ def test_stack_instantiate_with_params():
     stack = Stack(from_list=items)
     assert type(stack) == Stack
     assert len(stack) == len(items)
-    top_item = stack.pop()
+    top_item = stack.peek()
     assert top_item == 3
 
 
@@ -24,7 +24,7 @@ def test_stack_push():
     stack.push(20)
     stack.push(30)
     assert len(stack) == 3
-    item_on_top = stack.pop()
+    item_on_top = stack.peek()
     assert item_on_top == 30
 
 
