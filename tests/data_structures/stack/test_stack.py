@@ -5,7 +5,7 @@ import pytest
 
 def test_stack_instantiate():
     stack = Stack()
-    assert type(stack) == Stack
+    assert type(stack) is Stack
     assert len(stack) == 0
 
 
