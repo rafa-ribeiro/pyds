@@ -86,6 +86,35 @@ def test_delete_on_tail():
     assert linked_list.tail.value == 105
 
 
+def test_delete_on_tail_with_duplicated_elements():
+    linked_list = LinkedList()
+    linked_list.append(10)
+    linked_list.append(20)
+    linked_list.append(35)
+    linked_list.append(20)
+    assert len(linked_list) == 4
+
+    linked_list.delete_tail()
+    assert len(linked_list) == 3
+    assert linked_list.tail.value == 35
+
+
+def test_delete_all_elements_on_tail():
+    linked_list = LinkedList()
+    linked_list.append(10)
+    linked_list.append(20)
+    linked_list.append(30)
+    assert len(linked_list) == 3
+
+    linked_list.delete_tail()
+    linked_list.delete_tail()
+    linked_list.delete_tail()
+    linked_list.delete_tail()
+    assert len(linked_list) == 0
+    assert linked_list.head is None
+    assert linked_list.tail is None
+
+
 def test_delete_value_between():
     linked_list = LinkedList()
     linked_list.append(50)

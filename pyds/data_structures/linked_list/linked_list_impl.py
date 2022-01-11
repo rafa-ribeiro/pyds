@@ -47,7 +47,20 @@ class LinkedList:
             self.tail = self.head
 
     def delete_tail(self):
-        self._delete_value(self.tail.value)
+        if self.head:
+            curr_node = self.head
+            before_node = None
+            while curr_node.next:
+                before_node = curr_node
+                curr_node = curr_node.next
+
+            self.tail = before_node
+            if self.tail:
+                self.tail.next = None
+            else:
+                self.head = None
+
+            self._size -= 1
 
     def _delete_value(self, value):
         before_node = self.head
