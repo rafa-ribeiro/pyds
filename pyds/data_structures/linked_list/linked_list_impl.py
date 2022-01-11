@@ -54,11 +54,11 @@ class LinkedList:
                 before_node = curr_node
                 curr_node = curr_node.next
 
-            self.tail = before_node
-            if self.tail:
+            if before_node:
+                self.tail = before_node
                 self.tail.next = None
             else:
-                self.head = None
+                self.head = self.tail = None
 
             self._size -= 1
 
