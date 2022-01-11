@@ -1,3 +1,5 @@
+import pytest
+
 from pyds.data_structures.linked_list import LinkedList
 
 
@@ -38,9 +40,16 @@ def test_append_n_items_with_duplicated_elements():
     assert linked_list.tail.value == 5
 
 
-def test_iterator():
+iterator_test_data = [
+    ([1, 2, 3, 4, 5]),
+    ([1]),
+    (['a', 'b']),
+]
+
+
+@pytest.mark.parametrize("items_to_add", iterator_test_data)
+def test_iterator(items_to_add):
     linked_list = LinkedList()
-    items_to_add = [1, 2, 3, 4, 5]
 
     for value in items_to_add:
         linked_list.append(value)
