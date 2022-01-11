@@ -5,7 +5,7 @@ class LinkedListNode:
         self.next = None
 
     def __str__(self):
-        return f"Value: {self.value} | Next: {self.next.value}"
+        return f"Value: {self.value} | Next: {self.next.value if self.next else None}"
 
 
 class LinkedList:
