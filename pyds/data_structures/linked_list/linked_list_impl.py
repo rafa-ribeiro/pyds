@@ -42,9 +42,9 @@ class LinkedList:
         self._size -= 1
 
         if len(self) == 0:
-            self.head = None
+            self.head = self.tail = None
         elif len(self) == 1:
-            self.tail = None
+            self.tail = self.head
 
     def delete_tail(self):
         self._delete_value(self.tail.value)
@@ -67,7 +67,7 @@ class LinkedList:
             self._size -= 1
             # if the list has a size equal to 1, there is no tail value
             if len(self) == 1:
-                self.tail = None
+                self.tail = self.head
             # if value is in tail, remove it and set new tail
             elif idx == self._size:
                 self.tail = before_node

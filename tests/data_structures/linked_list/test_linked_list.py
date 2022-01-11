@@ -159,7 +159,7 @@ def test_remove_first_element_from_list_size_2():
     linked_list.delete("Ken")
     assert len(linked_list) == 1
     assert linked_list.head.value == "Ryu"
-    assert linked_list.tail is None
+    assert linked_list.tail == linked_list.head
 
 
 def test_remove_last_element_from_list_size_2():
@@ -171,4 +171,4 @@ def test_remove_last_element_from_list_size_2():
     linked_list.delete("Seiya")
     assert len(linked_list) == 1
     assert linked_list.head.value == "Shiryu"
-    assert linked_list.tail is None
+    assert linked_list.tail.value == linked_list.head.value
