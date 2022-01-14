@@ -1,6 +1,7 @@
 import pytest
 
 from pyds.data_structures.linked_list import LinkedList
+from pyds.data_structures.linked_list.linked_list_impl import LinkedListNode
 
 
 def test_linked_list_instantiate():
@@ -16,6 +17,23 @@ def test_append_new_item():
     assert len(linked_list) == 1
     assert linked_list.head.value == 10
     assert linked_list.tail.value == 10
+
+
+def test_prepend_new_item_in_empty_list():
+    linked_list = LinkedList()
+    linked_list.prepend(2)
+    assert len(linked_list) == 1
+    assert linked_list.head.value == 2
+    assert linked_list.tail.value == 2
+
+
+def test_prepend_new_item_after_append():
+    linked_list = LinkedList()
+    linked_list.append(3)
+    linked_list.prepend(1)
+    assert len(linked_list) == 2
+    assert linked_list.head.value == 1
+    assert linked_list.tail.value == 3
 
 
 def test_append_n_items():
@@ -210,3 +228,29 @@ def test_remove_last_element_from_list_size_2():
     assert len(linked_list) == 1
     assert linked_list.head.value == "Shiryu"
     assert linked_list.tail.value == linked_list.head.value
+
+
+def test_contains_item():
+    items = [1, 5, 10, 15]
+    linked_list = LinkedList()
+    for item in items:
+        linked_list.append(item)
+
+    assert len(linked_list) == len(items)
+    assert (10 in linked_list) is True
+    assert (10 in linked_list) is True
+    assert (5 in linked_list) is True
+    assert (1 in linked_list) is True
+    assert (9 in linked_list) is False
+
+
+def test_find_item():
+    items = [1, 3, 5, 7, 9]
+    linked_list = LinkedList()
+    for item in items:
+        linked_list.append(item)
+
+    item = linked_list.find(5)
+    assert type(item) == LinkedListNode
+    assert item.value == 5
+    assert item.next.value == 7
